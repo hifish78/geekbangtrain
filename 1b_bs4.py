@@ -13,10 +13,12 @@ myurl = 'https://movie.douban.com/top250'
 
 response = requests.get(myurl,headers=header)
 
+# html.parser --> beautiful soup的内置的解析方式
 bs_info = bs(response.text, 'html.parser')
-
 # Python 中使用 for in 形式的循环,Python使用缩进来做语句块分隔
+# 元素名字叫div, attrs 属性名class, 值是hd
 for tags in bs_info.find_all('div', attrs={'class': 'hd'}):
+    # 找到a标签
     for atag in tags.find_all('a'):
         print(atag.get('href'))
         # 获取所有链接
