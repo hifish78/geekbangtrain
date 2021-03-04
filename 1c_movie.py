@@ -1,4 +1,5 @@
 import requests
+# lxml是beautifulsoup的替代库
 import lxml.etree
 
 # 爬取页面详细信息
@@ -21,6 +22,7 @@ film_name = selector.xpath('//*[@id="content"]/h1/span[1]/text()')
 print(f'电影名称: {film_name}')
 
 # 上映日期
+# 从浏览器里得到的XPATH： //*[@id="info"]/span[10]； 这里多出了text()
 plan_date = selector.xpath('//*[@id="info"]/span[10]/text()')
 print(f'上映日期: {plan_date}')
 
@@ -30,7 +32,7 @@ print(f'评分：{rating}')
 
 mylist = [film_name, plan_date, rating]
 
-
+# 把从浏览器得到的信息保存
 import pandas as pd
 
 movie1 = pd.DataFrame(data = mylist)

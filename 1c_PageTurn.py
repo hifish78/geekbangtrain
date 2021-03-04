@@ -22,7 +22,15 @@ def get_url_name(myurl):
 
 
 # 生成包含所有页面的元组
+# https://movie.douban.com/top250?start=50&filter=
 urls = tuple(f'https://movie.douban.com/top250?start={ page * 25 }&filter=' for page in range(10))
+
+# 等价于下面的写法
+# a = []
+# for page in range(10):
+#     pages = f'https://movie.douban.com/top250?start={ page * 25 }&filter='
+#     a.append(pages)
+# tuple(a)
 
 print(urls)
 
