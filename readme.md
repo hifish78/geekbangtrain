@@ -1,3 +1,2 @@
-Scrapy爬虫增加电影简介
-
-
+# geekbangtrain
+Python训练营
